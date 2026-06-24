@@ -1,0 +1,26 @@
+import { useEffect, useState } from "react";
+import { getHealth } from "./api";
+
+export default function App() {
+  const [status, setStatus] = useState("checking");
+  const [service, setService] = useState("");
+
+  useEffect(() => {
+    getHealth()
+      .then((data) => {
+        setStatus(data.status || "unknown");
+        setService(data.service || "backend");
+      })
+      .catch(() => {
+        setStatus("down");
+      });
+  }, []);
+
+  return (
+    <main className="shell">
+      <h1>{{ .frontendAppTitle }}</h1>
+      <p>Connected backend service: <strong>{service || "n/a"}</strong></p>
+      <p>Health status: <strong>{status}</strong></p>
+    </main>
+  );
+}

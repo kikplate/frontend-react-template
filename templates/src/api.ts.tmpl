@@ -1,0 +1,7 @@
+const apiBase = "{{ .apiPrefix }}";
+
+export async function getHealth(): Promise<{ status: string; service?: string; project?: string }> {
+  const res = await fetch(`${apiBase}/health`);
+  if (!res.ok) throw new Error("Health request failed");
+  return await res.json();
+}

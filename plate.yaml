@@ -1,0 +1,63 @@
+name: frontend-react-template
+owner: kikplate-public
+description: React Vite frontend template wired to a backend API.
+version: 1.0.0
+
+category: frontend
+
+tags:
+  - react
+  - vite
+  - frontend
+  - starter
+
+schema:
+  projectName:
+    type: string
+    default: frontend-react-template
+  projectDescription:
+    type: string
+    default: React Vite frontend template wired to a backend API.
+  frontendAppTitle:
+    type: string
+    default: React Frontend
+  frontendPort:
+    type: int
+    default: 5173
+  appPort:
+    type: int
+    default: 8000
+  apiPrefix:
+    type: string
+    default: /api
+  nodeVersion:
+    type: string
+    default: "22"
+
+modules:
+  docker:
+    enabled: true
+
+files:
+  - path: package.json
+    template: https://raw.githubusercontent.com/kikplate/frontend-react-template/main/templates/package.json.tmpl
+  - path: index.html
+    template: https://raw.githubusercontent.com/kikplate/frontend-react-template/main/templates/index.html.tmpl
+  - path: tsconfig.json
+    template: https://raw.githubusercontent.com/kikplate/frontend-react-template/main/templates/tsconfig.json.tmpl
+  - path: vite.config.ts
+    template: https://raw.githubusercontent.com/kikplate/frontend-react-template/main/templates/vite.config.ts.tmpl
+  - path: src/main.tsx
+    template: https://raw.githubusercontent.com/kikplate/frontend-react-template/main/templates/src/main.tsx.tmpl
+  - path: src/App.tsx
+    template: https://raw.githubusercontent.com/kikplate/frontend-react-template/main/templates/src/App.tsx.tmpl
+  - path: src/api.ts
+    template: https://raw.githubusercontent.com/kikplate/frontend-react-template/main/templates/src/api.ts.tmpl
+  - path: src/styles.css
+    template: https://raw.githubusercontent.com/kikplate/frontend-react-template/main/templates/src/styles.css.tmpl
+  - path: Dockerfile
+    template: https://raw.githubusercontent.com/kikplate/frontend-react-template/main/templates/Dockerfile.tmpl
+    condition: modules.docker.enabled
+  - path: nginx.conf
+    template: https://raw.githubusercontent.com/kikplate/frontend-react-template/main/templates/nginx.conf.tmpl
+    condition: modules.docker.enabled
