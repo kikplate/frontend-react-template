@@ -2,7 +2,7 @@ name: frontend-react-template
 owner: kikplate-public
 description: React Vite frontend template wired to a backend API.
 version: 1.0.0
-
+verification_token: 078a0d41-adc9-4633-8e70-7f3da842ee8e
 category: frontend
 
 tags:
